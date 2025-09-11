@@ -1,0 +1,2 @@
+# GuruStay
+An accomodation app
