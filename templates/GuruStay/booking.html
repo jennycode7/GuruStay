@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details</title>
+</head>
+    <style>
+        form {
+            border: 1px solid black;
+        }
+
+        img {
+            width: 100px;
+        }
+    </style>
+<body>
+    <h2>Details Page</h2>
+    <div>
+        <p>Price: {{ asset.title }}</p>
+        <img src="{{ asset.image.url }}" alt="" srcset="">
+        <p>Description {{ asset.description }}</p>
+        <p>Price: ${{ asset.price_per_night }} per night</p>
+        <p>Location: {{ asset.location }}</p>
+        <p>posted at: {{ asset.created_at }}</p>
+        {% if asset.available %}
+            <p>Available</p>
+        {% else %}
+            <p>Unavailable</p>
+        {% endif %}
+    </div>
+
+    <form action="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Book</button>
+    </form>
+</body>
+</html>

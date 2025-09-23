@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GuruStay - find Your Next Stay></title>
+</head>
+<link rel="stylesheet" href="{% static 'GuruStay/css/dashboard.css' %}">
+<body>
+  <h1>
+      <div class="header">
+        <div>GuruStay</div>
+        <div>hi {{ user.username }}</div>
+        <div>
+          {% if not user.is_host%}
+            <a href="{% url 'become_host' %}">Become a host</a>
+          {% else %}
+            <button>Host</button>
+          {% endif %}
+        </div>
+      </div>
+  </h1>
+  <h2> Available properties</h2>
+
+    {% for asset in assets %}
+      <div class="asset">
+        <div>
+          {% if asset.image %}
+            <img src="{{ asset.image.url }}" alt="">
+          {% else %}
+            <h3>No image Available</h3>
+          {% endif %}
+          <p>{{asset.title}}</p>
+          <p>{{ asset.location }}</p>
+          <p>${{asset.price_per_night}} per night</p>
+          <a href="{% url 'book_property' asset.id %}">Book now</a>
+        </div>
+      </div>
+    {% empty %}
+    <h1>No assets</h1>
+    {% endfor %}
+
+</body>
+</html>

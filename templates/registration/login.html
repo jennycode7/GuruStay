@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GuruStay Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #022e5c, #680303);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+      animation: bounce 0.9s ease-out;
+      animation-iteration-count: 1; /* run once */
+    }
+
+    @keyframes bounce {
+        0%   { transform: translateY(0); }
+        30%  { transform: translateY(-50px); }  /* jump up */
+        50%  { transform: translateY(20px); }   /* fall down */
+        70%  { transform: translateY(-10px); }  /* small rebound */
+        100% { transform: translateY(0); }      /* settle */
+    }
+
+    .login-container h2 {
+      text-align: center;
+      color: #022e5c;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      color: #333;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #022e5c;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #680303;
+    }
+
+    .login-button {
+      background: #680303;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-button:hover {
+      background: #680303;
+    }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .footer-text a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>GuruStay Login</h2>
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="login-button">Login</button>
+        {% if form.errors %}
+            <p style="color:red; padding: 2px;">Your entered an incorrect username of password</p>
+        {% endif %}
+
+        {% if next %}
+            {% if not user.is_authenticated %}
+                <h5>Please login to view:</h5>
+            {% else %}
+                <h1>please login</h1>
+            {% endif %}
+
+        {% endif %}
+
+
+      <input type="hidden" name="next" value={{next}}>
+    </form>
+    <div class="footer-text">
+      Don't have an account? <a href="{% url 'signup' %}">Sign up</a>
+    </div>
+  </div>
+
+</body>
+</html>

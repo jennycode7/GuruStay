@@ -1,0 +1,181 @@
+body {
+    color: #ddd;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+.header {
+    background: #080914;
+    margin: 0;
+    padding: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.Container1 {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+
+
+/* Stepper container */
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: #080914;
+    padding: 20px;
+    border-bottom: 1px solid gray;
+}
+
+/* Step circles */
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+}
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #333;
+    border: 2px solid #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #aaa;
+    z-index: 1;
+}
+
+.active .circle {
+    background: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.done .circle {
+    background: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+/* Step label */
+.label {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* Progress line */
+.step::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    height: 1px;
+    width: 100%;
+    background: #333;
+    z-index: 0;
+}
+
+.step:last-child::after {
+    display: none;
+}
+
+.done::after,
+.active::after {
+    background: #007bff;
+}
+
+
+
+/* Page content */
+.page {
+    display: none;
+    margin-top: 30px;
+}
+.page.active {
+    display: block;
+}
+#press {
+    margin: 20px 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+}
+ 
+
+/* Page1 styling */
+.in-page1 {
+    margin: auto;
+    width: 32%;
+    height: 320px;
+    border: 1px solid rgb(58, 57, 57);
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #06080f;
+}
+.in-page1 .text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+hr {
+    border: none;
+    height: 1px;
+    background-color: #aaa;
+}
+
+.in-page1 div {
+    padding: 8px;
+}
+
+.in-page1 input {
+    border-radius: 8px;
+    background-color: #111;
+    color: white;
+    border: 1px solid rgb(80, 78, 78);
+    height: 35px;
+    width: 100%;
+}
+
+.in-page1 button {
+    width: 100%;
+}
+
+/* page2 styling */
+.images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+
+}
+
+.images div {
+    padding: 15px;
+    border: 1px solid rgb(48, 47, 47);
+    margin: 25px auto;
+    border-radius: 8px;
+    background-color: rgb(19, 19, 31);
+}
+
+img {
+    width: 500px;
+    height: auto;
+    border-radius: 8px;
+}
+

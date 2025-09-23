@@ -1,0 +1,106 @@
+body {
+  background-color: #d4d2ca;
+}
+
+/* Terracotta; */
+
+.topnav {
+  padding: 30px;
+  border-bottom-style: ridge; border-color:lightgray;
+  border-bottom-width: 1px; 
+}
+
+.topnav a {
+  text-decoration: none;
+  color: black;
+  padding: 2rem 2rem; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.topnav .right {
+  float: right; 
+  padding-top: 1rem;
+} 
+
+.topnav .right:hover { 
+  color: blue;
+  font-size:larger;
+}
+
+
+.test {
+  margin: auto; 
+  width: 25%; 
+  border-style: ridge;
+  border-color: lightgray;
+  border-width: 0.1px; 
+  height: 220px;
+}
+
+.figure {
+  padding: 10px; 
+  border-bottom-style: ridge;
+  border-color: lightgray;
+  border-bottom-width: 0.1px;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: larger;
+}
+
+input[type=email] {
+  position: relative; 
+  left: 10px;
+  width: 90%; 
+  height: 25px;
+  border-radius: 7px;
+  border-style: ridge;
+  border-color: aliceblue; 
+  border-width: 1pxs;
+}  
+                
+input[type=password] {
+  position: relative; 
+  left: 10px; 
+  width: 90%; 
+  height:25px;
+  border-radius: 7px;
+  border-style: ridge;
+  border-color: aliceblue; 
+  border-top: 2px;
+}
+
+input[type=submit] {
+  position: relative; 
+  left: 50px; 
+  width: 70%; 
+  height: 30px;
+  border-radius: 7px;
+  border-style: none;
+  background-color: #0A0A0A;
+  color: white;
+  font-weight: 800; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}                     
+h6 a { 
+  text-decoration: none;
+  color:black;  
+}
+
+h6 { 
+  text-align: center;
+}
+
+input[type=email]:hover {
+  box-shadow: 1px 1px 5px 5px; 
+  color:lightblue
+}
+
+input[type=password]:hover {
+  box-shadow: 1px 1px 5px 5px; 
+  color:lightblue
+}
+
+input[type=submit]:hover {
+  font-size: larger;
+  background-size: 200pc; 
+  box-shadow: 1px 1px 5px 5px; 
+  color: lightcyan;
+}
+
