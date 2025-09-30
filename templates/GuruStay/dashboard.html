@@ -6,40 +6,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GuruStay - find Your Next Stay></title>
 </head>
-<link rel="stylesheet" href="{% static 'GuruStay/css/dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'GuruStay/css/dashboard2.css' %}">
 <body>
   <h1>
       <div class="header">
-        <div>GuruStay</div>
-        <div>hi {{ user.username }}</div>
-        <div>
-          {% if not user.is_host%}
-            <a href="{% url 'become_host' %}">Become a host</a>
-          {% else %}
-            <button>Host</button>
-          {% endif %}
+        <div><h3><a href="{% url 'Homepage' %}">GuruStay</a></h3></div>
+        <div class="header2">
+          <div>Hi {{ user.username }}</div>
+          <div>
+            {% if not user.is_host %}
+              <a href="{% url 'become_host' %}">Become a host</a>
+            {% else %}
+              <button>Host</button>
+            {% endif %}
+          </div>
+          <div>
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Log out</button>
+            </form>
+          </div>
         </div>
       </div>
   </h1>
-  <h2> Available properties</h2>
+  <h2>Explore Homes ></h2>
+  <div class="row">
+  {% for asset in assets %}
+    <div class="col">
+      {% if asset.image %}
+        <img src="{{ asset.image.url }}" alt="{{ asset.title }}" class="property-img">
+      {% else %}
+        <h3>No image Available</h3>
+      {% endif %}
 
-    {% for asset in assets %}
-      <div class="asset">
+      <div class="text">
         <div>
-          {% if asset.image %}
-            <img src="{{ asset.image.url }}" alt="">
-          {% else %}
-            <h3>No image Available</h3>
-          {% endif %}
-          <p>{{asset.title}}</p>
+          <p>{{ asset.title }}</p>
           <p>{{ asset.location }}</p>
-          <p>${{asset.price_per_night}} per night</p>
-          <a href="{% url 'book_property' asset.id %}">Book now</a>
+        </div>
+        <div>
+          <p>${{ asset.price_per_night }}/night</p>
+          <form action="{% url 'book_property' asset.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Book now</button>
+            </form>
         </div>
       </div>
-    {% empty %}
-    <h1>No assets</h1>
-    {% endfor %}
+    </div>
+  {% empty %}
+    <p>No properties available.</p>
+  {% endfor %}
+  </div>
 
 </body>
 </html>

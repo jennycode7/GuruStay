@@ -1,19 +1,65 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'GuruStay/css/home.css' %}">
 </head>
 <body>
-    {% if user.is_authenticated %}
-        <h1>Welcome to GuruStay! {{ user.username }}</h1>
-        <p><a href="{% url 'dashboard' %}">view properties</a></p>
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Log out</button>
-        </form>
-    {% else %}
+    <!-- header block -->
+    <div class="hero">
+        <div class="hero-under">
+            <div>
+                <h1 style="font-weight:900;">GuruStay</h1>
+            </div>
+            <div class="hero-under2">
+                <div><button>USD</button></div>
+                <div>Become a Host</div>
+                <div><a href="">profile</a></div>
+            </div>
+
+            <div class="div-text">
+                <h1 style="font-size: 60px;">Find Your Perfect Stay</h1>
+                <div class="button-group">
+                    <button><h3>HOMES</h3></button>
+                    <button><h3>BNBS</h3></button>
+                    <button><h3>APARTMENTS</h3></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="search-bar">
+        <input type="text" placeholder="Where are you going?">
+        <input type="date" placeholder="Check-in">
+        <input type="date" placeholder="Check-out">
+        <input type="number" placeholder="Guests">
+        <button class="search-btn">Search</button>
+    </section>
+
+
+    <div>
+        <div>
+            <img src="" alt="" srcset="">
+        </div>
+        <div>
+            <img src="" alt="" srcset="">
+        </div>
+    </div>
+    
+
+
+    <!-- <div class="first">
+        <img src="{% static 'GuruStay/images/beach.jpeg' %}" alt="" srcset="">
+        <div class="text">
+            <h2>Find Your Perfect Stay</h2>
+            <input type="text">
+        </div>
+    </div> -->
+    <p><a href="{% url 'dashboard' %}">view properties</a></p>
+    {% if not user.is_authenticated %}
         <p>Login in <a href="{% url 'login' %}">Here</a></p>
     {% endif %}
 </body>

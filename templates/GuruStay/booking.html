@@ -1,21 +1,131 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Details</title>
+    <link rel="stylesheet" href="{% static 'GuruStay/booking.css' %}">
 </head>
-    <style>
-        form {
-            border: 1px solid black;
-        }
-
-        img {
-            width: 100px;
-        }
-    </style>
 <body>
-    <h2>Details Page</h2>
+    <!-- <div class="header">
+        <div>
+            <h3>GuruStay</h3>
+        </div>
+        <div>
+            <button>My profile</button>
+            <button>Log out</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row1-col1">
+            <img src="" alt="">
+            <div>
+                <img src="{% static 'GuruStay/images/image3.jpg' %}" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
+            <div class="row1-col2">
+                <h2>Beautiful House</h2>
+                <p>Location</p>
+
+                <p><h3>Description</h3></p>
+                <p></p>    
+            </div>
+            <div>
+                <h2>Location</h2>
+            </div>
+        </div>
+
+
+        <div>
+            <div>
+                <h2>$200 <small>per night</small></h2>
+                <button>book now</button>
+            </div>
+            <div>
+                <h2>Booking</h2>
+                <input type="date" name="" id="">
+                <input type="date" name="" id="">
+                <input type="number" name="" id="">
+                <h3>Total Price</h3>
+                <p>$0</p>
+                <button>Confirm Booking</button>
+        </div>
+        <div>
+            <h3> Reviews **** 4.5</h3>
+            <div>
+                <p>*****</p>
+                <h4>Brief Description</h4>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+
+        <!-- Property Info -->
+        <div class="property-card">
+            <img src="{% static 'GuruStay/images/image3.jpg' %}" alt="Hotel Room">
+            <div class="property-info">
+                <h2>Hotel Luxe</h2>
+                <p class="location">Paris</p>
+                <p class="rating">★★★★☆ 4.8</p>
+                <p class="price">$200 / night</p>
+            </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="form-section">
+            <h3>Booking Details</h3>
+            <div class="date-group">
+                <label>Check-in</label>
+                <input type="date">
+                <label>Check-out</label>
+                <input type="date">
+            </div>
+        </div>
+
+        <h3>Guest Information</h3>
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email">
+        <input type="tel" placeholder="Phone">
+
+        <h3>Special Requests</h3>
+        <textarea placeholder="Any special request?"></textarea>
+        <label><input type="checkbox"> Save info for next time</label>
+
+        <h3>Payment</h3>
+        <div class="payment-options">
+            <label><input type="radio" name="payment" checked> Credit/Debit Card</label>
+            <label><input type="radio" name="payment"> PayPal</label>
+        </div>
+        <input type="text" placeholder="Card Number">
+        <input type="text" placeholder="MM / YY">
+
+        <div class="support">
+            <p>Free cancellation until Aug 15</p>
+            <p>24/7 customer support</p>
+        </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary-section">
+            <h3>Booking Summary</h3>
+            <p>4 nights</p>
+            <p>$200 x 4 nights = $800</p>
+            <p>Taxes & fees = $60</p>
+            <p>Service fee = $80</p>
+            <input type="text" placeholder="Coupon Code">
+            <button class="apply-btn">Apply</button>
+            <h2>Total: $940</h2>
+            <button class="confirm-btn">Confirm & Pay</button>
+        </div>
+        
+    </div>
+
+
+
+    <!-- <h2>Details Page</h2>
     <div>
         <p>Price: {{ asset.title }}</p>
         <img src="{{ asset.image.url }}" alt="" srcset="">
@@ -34,6 +144,6 @@
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit">Book</button>
-    </form>
+    </form> -->
 </body>
 </html>
